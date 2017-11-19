@@ -1,0 +1,185 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+header {
+        text-align: center;
+}
+
+body {
+	font-family: 'OrkneyRegular', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1.6;
+	color: #3a3a3a;
+	margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+	font-size: .95em;
+}
+
+h2,
+h3,
+a {
+	color: #920000;
+}
+
+h2,
+h3 {
+	margin-top: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+/* ================================= 
+  Fonts
+==================================== */
+
+@font-face{
+	font-family: Xolonium;
+	src: url('xolonium-regular.woff2') format('woff2');
+	src: url('xolonium-regular.woff') format('woff');
+	src: url('xolonium-regular.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: OrkneyRegular;
+	src: url('orkney-regular.woff2') format('woff2');
+	src: url('orkney-regular.woff') format('woff');
+	src: url('orkney-regular.ttf') format('truetype');
+}
+
+h1,
+h2,
+h3,
+.main-nav li,
+.tagline,
+.footer-inner span { 
+   font-family: 'Xolonium', sans-serif;
+   font-weight: normal; 
+   font-style: normal; 
+}
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Navigation ---- */
+
+.donate {
+        text-align: center;
+}
+
+.name {
+	font-size: 1.35em;
+	margin: 0;
+}
+
+.main-nav {
+	margin-top: 5px;
+}
+
+.name a,
+.main-nav a {
+	text-align: center;
+	display: block;
+	padding: 10px 15px;
+}
+
+.main-nav a {
+	font-size: .95em;
+	color: #920000;
+	text-transform: uppercase;
+}
+
+.main-nav a:hover {
+	color: #093a58;
+}
+
+.main-nav li {
+        text-transform: uppercase;
+}
+
+/* ---- Layout Containers ---- */
+
+.main-header {
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
+
+.banner,
+.main-footer {
+	text-align: center;
+}
+
+.banner {
+	color: #fff;
+	background: #920000;
+	padding: 1.8em 10%;
+	margin-bottom: 32px;
+}
+
+.col {
+	padding-right: 1em;
+	padding-left: 1em;
+}
+
+.main-footer {
+	background: #d9e4ea;
+	padding: 2em 0;
+	margin-top: 30px;
+}
+
+/* ---- Page Elements ---- */
+
+.headline {
+	margin: 0;
+}
+
+.feat-img {
+	border-radius: 5px;
+}
+
+.row ul {
+        list-style: inside;
+	padding-left: 1em;
+}
+
+.row h2 {
+        text-transform: uppercase;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+	.main-header,
+	.row,
+        .footer-inner{
+		width: 80%;
+		margin: 0 auto;
+		max-width: 1150px;
+	}
+
+	.tagline {
+		font-size: 1.4em;
+	}
+}

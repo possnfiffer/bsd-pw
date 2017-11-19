@@ -1,0 +1,51 @@
+/* ================================= 
+  Base Styles
+==================================== */
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.row {
+	flex: 1;
+}
+
+li:nth-child(7) {
+        align-self: center;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+
+	.main-header,
+	.main-nav {
+		display: flex;
+	}
+	.main-header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.row {
+		max-width: 75vw;
+	}
+
+}
+
+@media (min-width: 1025px) {
+
+	.main-header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.row {
+		max-width: 65vw;
+	}
+
+}
