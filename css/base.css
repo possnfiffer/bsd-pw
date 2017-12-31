@@ -147,6 +147,11 @@ h3,
 	margin-top: 30px;
 }
 
+.bsdcan-photos p {
+	width: 45%;
+	box-shadow: -1px -1px 1px #111, 2px 2px 1px #920000;
+}
+
 /* ---- Page Elements ---- */
 
 .headline {

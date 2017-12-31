@@ -12,6 +12,13 @@ body {
 	flex: 1;
 }
 
+.bsdcan-photos {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
 li:nth-child(7) {
         align-self: center;
 }
