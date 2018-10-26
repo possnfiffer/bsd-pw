@@ -136,6 +136,10 @@ h3,
 	margin-bottom: 32px;
 }
 
+.banner a {
+	color: yellow;
+}
+
 .col {
 	padding-right: 1em;
 	padding-left: 1em;
