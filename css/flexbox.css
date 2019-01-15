@@ -12,7 +12,7 @@ body {
 	flex: 1;
 }
 
-.bsdcan-photos {
+.photos {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

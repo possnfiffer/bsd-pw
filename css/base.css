@@ -151,14 +151,6 @@ h3,
 	margin-top: 30px;
 }
 
-.bsdcan-photos img {
-	box-shadow: -1px -1px 1px #111, 2px 2px 1px #920000;
-}
-
-.bsdcan-photos p {
-	width: 45%;
-}
-
 /* ---- Page Elements ---- */
 
 .headline {
@@ -167,6 +159,14 @@ h3,
 
 .feat-img {
 	border-radius: 5px;
+}
+
+.photos img {
+	box-shadow: -1px -1px 1px #111, 2px 2px 1px #920000;
+}
+
+.photos p {
+	width: 45%;
 }
 
 .row ul {
