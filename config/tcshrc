@@ -32,6 +32,3 @@ set noclobber
 # Fairly popular aliases to try out
 alias la ls -laG
 alias ll ls -G
-
-# Ansible 3.6
-alias ansible ansible-3.6
