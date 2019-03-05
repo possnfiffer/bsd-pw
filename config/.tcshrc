@@ -1,0 +1,37 @@
+set black       = '%{\033[30m%}'
+set red         = '%{\033[31m%}'
+set green       = '%{\033[32m%}'
+set yellow      = '%{\033[33m%}'
+set blue        = '%{\033[34m%}'
+set megenta     = '%{\033[35m%}'
+set cyan        = '%{\033[36m%}'
+set white       = '%{\033[37m%}'
+set nocolor     = '%{\033[0m%}'
+
+if ($?prompt) then
+	set prompt = "[${red}%n@%m:%~${nocolor}][${yellow}%h${nocolor}]>%b: "
+endif
+
+set history = 99999999
+# set histdup = erase
+set savehist = (99999999 merge lock)
+set histfile = ~/.tcsh_history
+
+
+# like Ctrl-d, just push TAB
+set autolist
+# one last chance to double-check I really am deleting the files I want to delete
+set rmstar
+
+# typo correction for commands
+# set correct=all
+
+# prevent shell from clobbering existing file if forget to >> (append) redirect and just > redirect
+set noclobber
+
+# Fairly popular aliases to try out
+alias la ls -laG
+alias ll ls -G
+
+# Ansible 3.6
+alias ansible ansible-3.6
