@@ -1,5 +1,10 @@
 # SCaLE17x Intro to FreeBSD
 
+## Requirements
+
+- Virtualbox (5+)
+- Internet access
+
 ## Workshop
 
 ### Morning
@@ -89,6 +94,13 @@ Exit vim by pressing “Esc” on the keyboard, then type `ZZ` or `:wq` followed
 ```tcsh
 startx
 ```
+
+##### Known issues
+
+- If you notice that your mouse is kinda slow, shutdown your machine and then do the following:
+  - Open your VM `Settings` -> `Display` tab
+  - Confirm `VBoxVGA` is selected
+  - Click `OK` and start your machine again.
 
 #### Desktop Configuration
 
