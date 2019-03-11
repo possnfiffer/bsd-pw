@@ -6,7 +6,7 @@
 
 To begin, we can simply:
 
-- Visit FreeBSD.org on a working computer
+- Visit [FreeBSD.org](https://FreeBSD.org) on a working computer
 - Look for the big `Download FreeBSD` button near the awesome beastie logo.
 - Once on that page, you will need to select the proper image from the list of `Installer Images`. We'll choose `amd64`.
 - Next, we’ll pick the image called `FreeBSD-12.0-RELEASE-amd64-bootonly.iso` from the list.
@@ -31,7 +31,7 @@ All of these steps in VirtualBox equate to assembling the hardware and inserting
 
 #### User Accounts
 
-Set a password for the root account on the system. Don’t fret when there are no `***` appearing while typing in your root password. Rest assured, the keystrokes are being recorded; they’re just not being shown on the Screen. For the `Time Zone` section we went with `America – North and South, United States of America`, `Mountain (most areas)`, `Skip` on both `Time & Date` screens. For the `System Configuration` section, we unselected `sshd`, selected `powerd` and chose `ok`. On the next screen, we selected `9 secure_console` to put the root password prompt on any attempt to enter Single User Mode at the system console. Say “yes” to the prompt about adding a new user. Use an all lowercase username. Enter the users `Full name`. Add the user account to the groups `wheel`, `operator`, `video` by responding to the question `Login group is .. Invite .. into other groups? []:` with `wheel operator video` then press `Enter`. Users in the `wheel` group can run “privileged” commands. The `operator` group allows users to do things like shutdown and restart the computer without needing to invoke the special privileges from the wheel group. It's a good idea to add users to the video group that is planning on using FreeBSD as a desktop. We chose `tcsh` for our shell and used defaults for the other fields while finally providing an account password. If all looks ok, proceed without creating any more user accounts.
+Set a password for the root account on the system. Don’t fret when there are no `***` appearing while typing in your root password. Rest assured, the keystrokes are being recorded; they’re just not being shown on the Screen. For the `Time Zone` section we went with `America – North and South, United States of America`, `Mountain (most areas)`, `Skip` on both `Time & Date` screens. For the `System Configuration` section, we unselected `sshd`, selected `powerd` and chose `ok`. On the next screen, we selected `9 secure_console` to put the root password prompt on any attempt to enter Single User Mode at the system console. Say “yes” to the prompt about adding a new user. Use an all lowercase username. Enter the users `Full name`. Add the user account to the groups `wheel`, `operator`, `video` by responding to the question `Login group is .. Invite .. into other groups? []:` with `wheel operator video` then press `Enter`. Users in the `wheel` group can run “privileged” commands. The `operator` group allows users to do things like shutdown and restart the computer without needing to invoke the special privileges from the wheel group. It's a good idea to add users to the `video` group that is planning on using FreeBSD as a desktop. We chose `tcsh` for our shell and used defaults for the other fields while finally providing an account password. If all looks ok, proceed without creating any more user accounts.
 
 For the `Final Configuration` section, select `Handbook`. We went with the default of `en` and chose `ok`. Once back on the configuration screen, select `Exit` to finish and `yes` to proceed with doing manual configuration. The only manual configuration we need to do is to shut down the machine so we can take out the CD. On the virtual machine, the power needs to be off to not get an error when removing the CD, so we’ll issue the shutdown command below to turn off the computer. Type either `init 0` or `shutdown -p now` to shut down. To take a CD out of a virtual machine in VirtualBox, click on the name of the virtual machine, click on `Settings`, click on `Storage`, and click on the tiny CD icon. Notice another tiny CD icon with a tiny down arrow below it next to the `Optical Drive` section. Use this second CD icon to `Remove Disk from Virtual Drive`.
 
@@ -64,6 +64,9 @@ Type enter or hit return and then type
 
 ```
 j0xxZZ (once you hit the first search term, j goes down, 0 goes to the beginning of the line, xx deletes the comment, ZZ saves and quits vi)
+```
+
+```tcsh
 sysrc dbus_enable=YES
 dbus-uuidgen > /etc/machine-id
 service dbus start
@@ -71,11 +74,11 @@ service dbus start
 
 Change to regular user by holding down “control” and pressing “d” on the keyboard which will log out the current user. Log in again, this time as the regular user account that was created. Next type the following commands.
 
-```
+```tcsh
 vim .xinitrc
 ```
 
-Again the vim editor, and to begin typing you need to be in “insert mode” and must press “I” to enter insert mode and begin typing in text. Type in the following one-line configuration:
+This time we use the vim editor, VI iMproved, and to begin typing you need to be in “insert mode” and must press `i` to enter insert mode and begin typing in text. Type in the following one-line configuration:
 
 ```
 exec start-lumina-desktop
@@ -83,7 +86,7 @@ exec start-lumina-desktop
 
 Exit vim by pressing “Esc” on the keyboard, then type `ZZ` or `:wq` followed by `Enter/Return`. At this point the virtual machine desktop can be started with the following command:
 
-```
+```tcsh
 startx
 ```
 
@@ -140,14 +143,14 @@ Change the line with `:umask=022:` to look like the following:
 
 save and quit the editor then run the following
 
-```
+```tcsh
 cap_mkdb /etc/login.conf
 logout
 ```
 
 Login again as root and type the following to verify UTF-8 locale has been set
 
-```
+```tcsh
 locale
 ```
 
@@ -178,107 +181,113 @@ vi /etc/fstab
 
 Add the following line to the file and exit when finished. `i` for insert mode, ESC then `ZZ` to save and quit the file. Press TAB between each of the fields for the fstab file.
 
-```
+```tcsh
 fdescfs /dev/fd fdescfs rw 0 0
 ```
 
 Download a Release branch of FreeBSD first
 
-```
+```tcsh
 ioc fetch
 ```
 
 We used [Enter] to fetch the default release iocage wants to provide. Verify the download with the following command
 
-```
+```tcsh
 ioc list --release
 ```
 
 View the help documentation
 
-```
+```tcsh
 ioc --help
 ```
 
 Any subcommands can also have the --help flag appended
 
-```
+```tcsh
 ioc create --help
 ```
 
 Create a base jail
 
-```
+```tcsh
 ioc create jail-one
 ```
 
 List current jails
 
-```
+```tcsh
 ioc list
 ```
 
 Do a filtered list of the jails based on what they are
 
-```
+```tcsh
 ioc list release=12+
 ```
 
 Setup networking on jail-one
 
-```
+```tcsh
 ioc set vnet=off ip4_addr="em0|10.0.2.16/24” jail-one
 ```
 
 List jails again to see the changes to the output
 
-```
+```tcsh
 ioc list
 ```
 
 Startup jail-one and jump into the console
 
-```
+```tcsh
 ioc console -s jail-one
+```
+
+The -s flag will start the jail if it isn't already started. To manually start a jail use this
+
+```tcsh
+ioc start jail-one
 ```
 
 Verify networking is working
 
-```
+```tcsh
 pkg
 ```
 
-Say yes to the pkg bootstrap prompt
-Exit the VM console with ctrl + d
-Another feature to consider is “One-Shot Jails”
-Turn off the jail
+Say yes to the pkg bootstrap prompt.
+Exit the jail console with `ctrl + d`.
+Another feature to consider is “One-Shot Jails”.
+Turn off the jail first
 
-```
+```tcsh
 ioc stop jail-one
 ```
 
 try issuing the following command
 
-```
+```tcsh
 ioc exec -f jail-one ifconfig
 ```
 
-The jail should start up, run the command, display the output and then stop the jail
+The jail should start up, run the command, display the output and then stop the jail.
 To delete a jail
 
-```
+```tcsh
 ioc destroy jail-one
 ```
 
 # Poudriere
 
 The following commands will work on the virtual machine we’ve been using sofar but it will take a long time to compile all the packages.
-We’re going to use the cloned virtual machine we created earlier to explore Poudriere.
+We’re going to use the cloned virtual machine we created earlier to explore Poudriere. Start up the cloned VM.
 
 Commands to execute:
 
 ```tcsh
-pkg install -y poudriere
+pkg install -y poudriere vim-console
 mkdir /usr/ports/distfiles
 vim /usr/local/etc/poudriere.conf
 ```
@@ -303,27 +312,34 @@ get together a list of packages to build. I ran `pkg query -e '%a=0' %o` on my l
 
 ```tcsh
 pkg query -e ‘%a=0’ %o | tee pkglist
+```
+
+```tcsh
+editors/vim-console
 ports-mgmt/pkg
 ports-mgmt/poudriere
 ```
 
-**Note**: `tee` writes output to a file and also to `stdout`
+**Note**: `tee` writes output to a file and also to `stdout`. Also the following two bits of information are optional for this tutorial and are included to show you how to customize packages.
 
 Two ways to configure custom options for packages, manually and with the normal make config screen.
 FYI: Manually looks like this
 
+```tcsh
+vim /usr/local/etc/poudriere.d/amd64-12-0-make.conf
 ```
-vim /usr/local/etc/poudriere.d/amd64-11-2-make.conf
-DEFAULT_VERSIONS += ssl=libressl**
+
+```
+DEFAULT_VERSIONS += ssl=libressl
 ```
 
 To customize a package one can use the normal package configuration screens, which will appear when issuing the following command
 
-```
+```tcsh
 poudriere options -j amd64-12-0 -p head -f pkglist
 ```
 
-For this tutorial we’ll just actually build the packages with the default options by issuing the following command
+For this tutorial we’ll just actually build the packages with the default options to get the hang of Poudriere by issuing the following
 
 ```tcsh
 poudriere bulk -j amd64-12-0 -p head -f pkglist
@@ -338,13 +354,13 @@ this directory contains logs and even a website at `/usr/local/poudriere/data` o
 
 Create a pkg repository
 
-```
+```tcsh
 mkdir -p /usr/local/etc/pkg/repos
 ```
 
 Disable the main FreeBSD repo
 
-```
+```tcsh
 vim /etc/pkg/FreeBSD.conf
 ```
 
@@ -352,13 +368,13 @@ Set enabled to no
 
 ```
 FreeBSD: {
-enabled: no
+    enabled: no
 }
 ```
 
 Create a FreeBSD.conf replacement file to hold the repository configuration
 
-```
+```tcsh
 vim /usr/local/etc/pkg/repos/amd64-12-0.conf
 ```
 
@@ -366,23 +382,29 @@ Add the following configuration
 
 ```
 amd64-12-0: {
-url: “file:///usr/local/poudriere/data/packages/amd64-12-0-head”,
-enabled: yes,
+    url: “file:///usr/local/poudriere/data/packages/amd64-12-0-head”,
+    enabled: yes,
 }
 ```
 
 To reinstall all packages using the new repo
 
-```
+```tcsh
 pkg upgrade -fy
 ```
 
 ## Updating Poudriere
 
-```
+```tcsh
 vim /usr/local/etc/poudriere.conf
+```
+
+```
 CHECK_CHANGED_OPTIONS=verbose
 CHECK_CHANGED_DEPS=yes
+```
+
+```tcsh
 poudriere jail -j amd64-12-0 -u
 ```
 
