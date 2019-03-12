@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Virtualbox (5+)
+- VirtualBox (5+ is the version we used but any version should be fine. This program works on most computers, be sure to enable VT-x in your computers BIOS)
 - Internet access
 
 ## Workshop
