@@ -29,4 +29,8 @@ to create a virtualenv and open the shell within it so you could type something 
 
 which will install the b2 client for BackBlaze B2 which I use for off-site backups.
 
+Also, pipenv uses a Pipfile rather than requirements.txt so you can import a requirements.txt file like
+
+```pipenv install -r requirements.txt```
+
 I've heard poetry is cool and similar to pipenv but haven't started using that one.
