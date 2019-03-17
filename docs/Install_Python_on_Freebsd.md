@@ -27,10 +27,22 @@ to create a virtualenv and open the shell within it so you could type something 
 
 ```pip install b2```
 
-which will install the b2 client for BackBlaze B2 which I use for off-site backups.
+which will install the b2 client for BackBlaze B2 which I use for off-site backups but it won't save these to the Pipfile so I recomment the pipenv install way.
 
 Also, pipenv uses a Pipfile rather than requirements.txt so you can import a requirements.txt file like
 
 ```pipenv install -r requirements.txt```
+
+### Once you have your requirements installed...
+
+Everyday usage looks like this
+
+```pipenv shell```
+
+from within your project directory that contains the Pipfile
+
+```python```
+
+and you'll see your >>> python repl, enjoy!
 
 I've heard poetry is cool and similar to pipenv but haven't started using that one.
