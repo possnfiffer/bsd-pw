@@ -234,6 +234,8 @@ mkdir /mnt/amd64-12-0-head
 exit
 ```
 
+This fstab thing didn't work... will look into later instead just run the mount -t command that follows the fstab stuff
+
 ```
 vi /etc/fstab.nextcloud
 ```
@@ -243,6 +245,13 @@ add the contents
 ```
 /usr/local/poudriere/data/packages/amd64-12-0-head	/mnt/amd64-12-0-head	nullfs	rw	0	0
 ```
+
+mount command to use instead of the fstab(this is a manual command, won't run automatically)
+
+```
+mount -t nullfs /usr/local/poudriere/data/packages/amd64-12-0-head /jail/nextcloud/mnt/amd64-12-0-head
+```
+
 
 run the following
 
