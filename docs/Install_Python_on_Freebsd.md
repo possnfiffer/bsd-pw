@@ -43,6 +43,6 @@ from within your project directory that contains the Pipfile
 
 ```python```
 
-and you'll see your >>> python repl, enjoy!
+and you'll see your >>> Python repl, enjoy!
 
 I've heard poetry is cool and similar to pipenv but haven't started using that one.
