@@ -10,8 +10,11 @@
 
 ```sudo -H pip3.7 install pipenv```
 
+## A final configuration step is to setup UTF-8 on FreeBSD. If you haven't already done so check the instructions in the Intro to FreeBSD Workshop linked below
+[Intro to FreeBSD](https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Intro_to_FreeBSD_Workshop.md#iocage)
+
 ## Regular Python usage commands
-```pipenv install **b2**```
+```pipenv install b2```
 
 (or any package name works fine here in place of b2)
 pipenv will create the virtualenv for you and install whatever package into it.
