@@ -269,7 +269,7 @@ mkdir -p /usr/local/etc/pkg/repos
 Disable the main FreeBSD repo
 
 ```tcsh
-vim /etc/pkg/FreeBSD.conf
+vi /etc/pkg/FreeBSD.conf
 ```
 
 Set enabled to no
@@ -309,7 +309,7 @@ pkg install -y www/nextcloud www/nginx databases/memcached security/sudo databas
 from the host machine run the following
 
 ```tcsh
-vim /usr/local/etc/poudriere.conf
+vi /usr/local/etc/poudriere.conf
 ```
 
 ```
@@ -496,7 +496,7 @@ http {
   server {
     # ENFORCE HTTPS
     listen      80;
-    server_name nextcloud.local;
+    server_name nextcloud.lab.bsd.pw;
     return      301 https://$server_name$request_uri;
   }
 
