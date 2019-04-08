@@ -203,7 +203,7 @@ remote_user = ansible
 
 no need to keep typing `-i hosts`
 
-back to the jail
+back to the jail (we may not need to have ansible in the group wheel anymore...something to consider)
 
 ```
 pw groupadd sudo
@@ -218,3 +218,19 @@ add the following configuration
 ```
 
 no need to keep typing `-K` and the sudo password, just using keys
+
+I added a [jails] section to my hosts with the jail ip like this
+
+```
+[jails]
+172.16.28.3
+
+[jails:vars]
+ansible_python_interpreter=/usr/local/bin/python3.7
+```
+
+Now I can become sudo and not have to enter in the password
+
+```
+ansible jails -m package -a "name=git-lite state=present" -b
+```
