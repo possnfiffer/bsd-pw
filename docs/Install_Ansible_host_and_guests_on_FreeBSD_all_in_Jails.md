@@ -223,7 +223,7 @@ I added a [jails] section to my hosts with the jail ip like this
 
 ```
 [jails]
-172.16.28.3
+172.16.28.10
 
 [jails:vars]
 ansible_python_interpreter=/usr/local/bin/python3.7
