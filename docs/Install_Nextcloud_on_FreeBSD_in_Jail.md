@@ -92,6 +92,7 @@ add the following configuration
 run the following
 
 ```
+service jail restart nextcloud
 jexec 1 tcsh
 vi /etc/hosts
 ```
