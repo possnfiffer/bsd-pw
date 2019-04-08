@@ -158,3 +158,63 @@ ansible local -i hosts -m pkgng -a "name=git-lite state=present" -bK
 ```
 
 weird... the above fails inside my jail machine but when I setup the same thing on my real hardware setup it works fine and adds the package... jail gets an error and says "Could not update catalogue"
+
+I should setup my jail as a target for Ansible.
+
+```
+sudo -i
+sysrc sshd_enable=YES
+service sshd start
+vi /etc/sshd_config
+```
+
+change the ListenAddress to be the IP of the jail
+also add a new line to the end of the file that shows the following configuration
+
+```
+
+```
+
+run the following
+```
+service sshd restart
+exit
+mkdir .ssh
+vi .ssh/authorized_keys
+```
+
+authorized_keys should include the output of cat ansible.pub (whatever you named your ssh key pair) on a line of it's own
+
+
+
+
+From here on out I'm on my regular FreeBSD laptop running commands. 
+
+```
+vi ansible.cfg
+```
+
+add the following
+```
+[defaults]
+inventory = hosts
+remote_user = ansible
+```
+
+no need to keep typing `-i hosts`
+
+back to the jail
+
+```
+pw groupadd sudo
+pw groupmod sudo -m ansible
+visudo
+```
+
+add the following configuration
+
+```
+%sudo ALL=(ALL) NOPASSWD: ALL
+```
+
+no need to keep typing `-K` and the sudo password, just using keys
