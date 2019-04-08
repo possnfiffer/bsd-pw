@@ -172,7 +172,7 @@ change the ListenAddress to be the IP of the jail
 also add a new line to the end of the file that shows the following configuration
 
 ```
-
+AllowUsers ansible
 ```
 
 run the following
