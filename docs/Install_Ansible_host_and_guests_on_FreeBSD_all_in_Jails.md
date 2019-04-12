@@ -1,4 +1,5 @@
 # Install Ansible host and guests on FreeBSD all in Jails
+## Currently working on turning this into an Ansible Playbook =D
 ### in my lab I use an OPNSense firewall which is also my DHCP server with the default gataway setup as 172.16.28.1, it also acts as my DNS. Below we will be using zroot as the name of the zpool.
 
 On the host machine run
@@ -165,7 +166,7 @@ I should setup my jail as a target for Ansible.
 sudo -i
 sysrc sshd_enable=YES
 service sshd start
-vi /etc/sshd_config
+vi /etc/ssh/sshd_config
 ```
 
 change the ListenAddress to be the IP of the jail
