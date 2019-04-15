@@ -46,3 +46,11 @@ from within your project directory that contains the Pipfile
 and you'll see your >>> Python repl, enjoy!
 
 I've heard poetry is cool and similar to pipenv but haven't started using that one.
+
+### This works too for some projects that have setup.py
+```
+pipenv install -e project_dir/
+pipenv shell
+cd project_dir/
+python setup.py develop
+```
