@@ -1,5 +1,5 @@
 # Install pfSense on Linode
-Create your Linode in your preferred data center. For the purposes of this tutorial, we recommend turning Lassie off to prevent the watchdog from attempting to restart your Linode without your input. You can disable Lassie in the Settings tab of the Linode Manager under Shutdown Watchdog.
+Create your Linode in your preferred data center using the old interface available at https://manager.linode.com/ . Not sure how to do this on the new Interface. For the purposes of this tutorial, we recommend turning Lassie off to prevent the watchdog from attempting to restart your Linode without your input. You can disable Lassie in the Settings tab of the Linode Manager under Shutdown Watchdog.
 
 Create two disk images; both should be in the RAW format.
 
