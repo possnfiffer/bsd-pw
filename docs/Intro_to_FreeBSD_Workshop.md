@@ -1,4 +1,4 @@
-# SCaLE17x Intro to FreeBSD
+# SCaLE18x Intro to FreeBSD
 
 ## Requirements
 
@@ -14,11 +14,11 @@ To begin, we can simply:
 - Visit [FreeBSD.org](https://FreeBSD.org) on a working computer
 - Look for the big `Download FreeBSD` button near the awesome beastie logo.
 - Once on that page, you will need to select the proper image from the list of `Installer Images`. We'll choose `amd64`.
-- Next, we’ll pick the image called `FreeBSD-12.0-RELEASE-amd64-bootonly.iso` from the list.
+- Next, we’ll pick the image called `FreeBSD-12.1-RELEASE-amd64-bootonly.iso` from the list.
   - Because it’s the latest RELEASE version of FreeBSD
   - And is quite small.
 
-I highly recommend you also take a look at the `CHECKSUM.SHA512-FreeBSD-12.0-RELEASE-amd64` file and do your own SHA512 checksum verification after you have downloaded the file to see if they match. If so, you know that your download worked properly. Once the installer image has been downloaded, it is ready to be used to boot up the virtual machine.
+I highly recommend you also take a look at the `CHECKSUM.SHA512-FreeBSD-12.1-RELEASE-amd64` file and do your own SHA512 checksum verification after you have downloaded the file to see if they match. If so, you know that your download worked properly. Once the installer image has been downloaded, it is ready to be used to boot up the virtual machine.
 
 In VirtualBox, click the `New` button to start the wizard that will walk you through creating a virtual machine. The important options to keep in mind are the following:
 
