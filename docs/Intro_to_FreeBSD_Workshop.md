@@ -314,7 +314,7 @@ FREEBSD_HOST=https://download.freebsd.org
 Continue executing:
 
 ```tcsh
-poudriere jail -c -j amd64-12-0 -v 12.0-RELEASE
+poudriere jail -c -j amd64-12-1 -v 12.0-RELEASE
 poudriere jail -l
 poudriere ports -cp head
 poudriere ports -l
@@ -338,7 +338,7 @@ Two ways to configure custom options for packages, manually and with the normal 
 FYI: Manually looks like this
 
 ```tcsh
-vim /usr/local/etc/poudriere.d/amd64-12-0-make.conf
+vim /usr/local/etc/poudriere.d/amd64-12-1-make.conf
 ```
 
 ```
@@ -348,20 +348,20 @@ DEFAULT_VERSIONS += ssl=libressl
 To customize a package one can use the normal package configuration screens, which will appear when issuing the following command
 
 ```tcsh
-poudriere options -j amd64-12-0 -p head -f pkglist
+poudriere options -j amd64-12-1 -p head -f pkglist
 ```
 
 For this tutorial we’ll just actually build the packages with the default options to get the hang of Poudriere by issuing the following
 
 ```tcsh
-poudriere bulk -j amd64-12-0 -p head -f pkglist
-cd /usr/local/poudriere/data/logs/bulk/amd64-12-0-head/latest
+poudriere bulk -j amd64-12-1 -p head -f pkglist
+cd /usr/local/poudriere/data/logs/bulk/amd64-12-1-head/latest
 ```
 
 this directory contains logs and even a website at `/usr/local/poudriere/data` open the website to check status or press ctrl + t during the building to check status as well the packages that were built are available at
 
 ```
-/usr/local/poudriere/data/packages/amd64-12-0-head
+/usr/local/poudriere/data/packages/amd64-12-1-head
 ```
 
 Create a pkg repository
@@ -387,14 +387,14 @@ FreeBSD: {
 Create a FreeBSD.conf replacement file to hold the repository configuration
 
 ```tcsh
-vim /usr/local/etc/pkg/repos/amd64-12-0.conf
+vim /usr/local/etc/pkg/repos/amd64-12-1.conf
 ```
 
 Add the following configuration
 
 ```
-amd64-12-0: {
-    url: “file:///usr/local/poudriere/data/packages/amd64-12-0-head”,
+amd64-12-1: {
+    url: “file:///usr/local/poudriere/data/packages/amd64-12-1-head”,
     enabled: yes,
 }
 ```
@@ -417,10 +417,10 @@ CHECK_CHANGED_DEPS=yes
 ```
 
 ```tcsh
-poudriere jail -j amd64-12-0 -u
+poudriere jail -j amd64-12-1 -u
 ```
 
 ```tcsh
 poudriere ports -p head -u
-poudriere bulk -j amd64-12-0 -p head -f pkglist
+poudriere bulk -j amd64-12-1 -p head -f pkglist
 ```
