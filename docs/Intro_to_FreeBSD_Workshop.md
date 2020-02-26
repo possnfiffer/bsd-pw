@@ -169,24 +169,20 @@ locale
 Install iocage
 
 ```tcsh
-pkg install -y git
-mkdir -p /usr/local/src
-cd /usr/local/src
-git clone https://github.com/bsdci/ioc.git
-cd ioc
-make install
+pkg install -y iocage
 ```
 
 the following command assumes your zpool is named zroot adjust as necessary.
 
 ```tcsh
-sysrc ioc_dataset_default=zroot/iocage
-ioc list
+iocage activate zroot
+iocage list
 ```
 
-We should now see an empty table as the output of ioc list, we’ll do some additional housekeeping below
+We should now see an empty table as the output of iocage list, we’ll do some additional housekeeping below
 
 ```tcsh
+
 mount -t fdescfs null /dev/fd
 vi /etc/fstab
 ```
@@ -200,67 +196,55 @@ fdescfs /dev/fd fdescfs rw 0 0
 Download a Release branch of FreeBSD first
 
 ```tcsh
-ioc fetch
+iocage fetch
 ```
 
 We used [Enter] to fetch the default release iocage wants to provide. Verify the download with the following command
 
 ```tcsh
-ioc list --release
+iocage list -r
 ```
 
 View the help documentation
 
 ```tcsh
-ioc --help
+iocage --help
 ```
 
 Any subcommands can also have the --help flag appended
 
 ```tcsh
-ioc create --help
+iocage create --help
 ```
 
 Create a base jail
 
 ```tcsh
-ioc create jail-one
+iocage create -T -n JAILNAME ip4_addr="10.0.2.16" -r 12.1-RELEASE
 ```
 
 List current jails
 
 ```tcsh
-ioc list
-```
-
-Do a filtered list of the jails based on what they are
-
-```tcsh
-ioc list release=12+
-```
-
-Setup networking on jail-one
-
-```tcsh
-ioc set vnet=off ip4_addr="em0|10.0.2.16/24” jail-one
-```
-
-List jails again to see the changes to the output
-
-```tcsh
-ioc list
+iocage list
 ```
 
 Startup jail-one and jump into the console
 
 ```tcsh
-ioc console -s jail-one
+iocage console JAILNAME
 ```
 
-The -s flag will start the jail if it isn't already started. To manually start a jail use this
+The console command will start the jail if it isn't already started. To manually start a jail use this
 
 ```tcsh
-ioc start jail-one
+iocage start JAILNAME
+```
+
+Similarly to stop a jail issue
+
+```tcsh
+iocage stop JAILNAME
 ```
 
 Verify networking is working
@@ -271,24 +255,11 @@ pkg
 
 Say yes to the pkg bootstrap prompt.
 Exit the jail console with `ctrl + d`.
-Another feature to consider is “One-Shot Jails”.
-Turn off the jail first
 
-```tcsh
-ioc stop jail-one
-```
-
-try issuing the following command
-
-```tcsh
-ioc exec -f jail-one ifconfig
-```
-
-The jail should start up, run the command, display the output and then stop the jail.
 To delete a jail
 
 ```tcsh
-ioc destroy jail-one
+iocage destroy JAILNAME
 ```
 
 # Poudriere
