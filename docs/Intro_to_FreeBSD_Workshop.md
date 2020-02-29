@@ -130,7 +130,7 @@ This is a local copy of the FreeBSD Handbook, and it will always be available as
 sudo -i
 freebsd-update fetch install
 # Page Down & q should get you through the prompts. If the screen shows END
-# press q, use Page Down for the other screens.
+# press q, use Page Down for the other screens. You can also use q for every screen.
 pkg update
 pkg upgrade -y
 ```
