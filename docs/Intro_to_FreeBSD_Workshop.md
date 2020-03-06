@@ -434,7 +434,7 @@ pkg install -y py36-ansible
 fetch the Ansible playbook for the workshop and extract the contents of the compressed Ansible files
 
 ```tcsh
-fetch bsd.pw/ansible-directory.tar.gz
+fetch http://bsd.pw/ansible-directory.tar.gz
 tar -xzvf ansible-directory.tar.gz
 ```
 
