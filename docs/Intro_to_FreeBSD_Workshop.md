@@ -423,7 +423,7 @@ pkg update
 
 # Ansible
 
-Ansible is a configuration management tool to allow one to create reusable scripts to perform multiple actions on groups of servers or a single server. Ansible organizes tasks into Ansible Playbooks and supports the separation of servers into multiple groups called roles. You can assign certain tasks to their respective roles. Tasks are made up of modules that allow the script to be idempotent. An example would be the package module where you can set the state of absent. If the package is on the system, Ansible will make sure the package is removed or absent. If the package isn't on the system, Ansible won't do anything and will report back to the control machine that invoked the `ansible-playbook` command that there were no changes made as the package we wanted to be absent was indeed absent from the system when Ansible checked. This control machine is usually your development machine. Ansible sends commands to the machines listed in your Ansible hosts file from the control machine using `ssh`.
+Ansible is a configuration management system that allows one to create reusable infrustructure as code to perform multiple actions on groups of servers or a single server. Ansible organizes tasks into Ansible Playbooks and supports the separation of servers into multiple groups called roles. You can assign certain tasks to their respective roles. Ansible sends commands to the machines listed in your Ansible hosts file from the control machine using `ssh`. This control machine is where Ansible needs to be installed. The remote machines only need `ssh` setup. 
 
 Install Ansible
 
