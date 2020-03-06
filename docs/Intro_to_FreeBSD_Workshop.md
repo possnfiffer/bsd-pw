@@ -423,7 +423,9 @@ pkg update
 
 # Ansible
 
-Ansible is a configuration management system that allows one to create reusable infrustructure as code to perform multiple actions on groups of servers or a single server. Ansible organizes tasks into Ansible Playbooks and supports the separation of servers into multiple groups called roles. You can assign certain tasks to their respective roles. Ansible sends commands to the machines listed in your Ansible hosts file from the control machine using `ssh`. This control machine is where Ansible needs to be installed. The remote machines only need `ssh` setup. 
+Ansible is a configuration management system that allows one to create reusable infrustructure as code to perform multiple actions on groups of servers or a single server. Ansible organizes tasks into Ansible Playbooks and supports the separation of servers into multiple groups called roles. You can assign certain tasks to their respective roles. Ansible sends commands to the machines listed in your Ansible hosts file from the control machine using `ssh`. This control machine is where Ansible needs to be installed. The remote machines only need `ssh` setup.
+
+We'll use Ansible to install Poudriere on a remote server that is many times more powerful than my local machine, build our pkglist files and finally sync the resulting packages down to our local machine.
 
 Install Ansible
 
