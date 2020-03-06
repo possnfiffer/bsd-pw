@@ -431,16 +431,38 @@ Ansible is a configuration management tool to allow one to create reusable scrip
 pkg install -y py36-ansible
 ```
 
-### fetch the Ansible playbook for the workshop
-### extract the contents of the compressed Ansible file
-### show how to create an ssh key 
-### show how to add the .pub key to Digital Ocean
-### create the droplet and copy the ip
-### update the hosts file with the droplet ip
+### fetch the Ansible playbook for the workshop and extract the contents of the compressed Ansible files
 
 ```tcsh
+fetch bsd.pw/ansible-directory.tar.gz
+tar -xzvf ansible-directory.tar.gz
+```
+
+### Create an SSH Key Pair, add a passphrase to the key when prompted and load the new key into memory with `ssh-agent` where you will prompted for the passphrase we just set on the key in order to load it into memory. This allows us to only need to enter in the passphrase for our SSH key one time per terminal session.
+
+```tcsh
+cd ansible-directory
+ssh-keygen -t ed25519 -f ansible
 ssh-agent tcsh
-ssh-add .ssh/id_rsa
-cd extracted-ansible-directory
+ssh-add ansible
+```
+
+### Copy the contents of the ansible.pub key over to Digital Ocean
+
+```tcsh
+cat ansible.pub
+```
+
+### Create the Digital Ocean droplet and select the new SSH key then copy the droplet IP
+
+### Update the hosts file with the new Digital Ocean droplet IP
+
+```tcsh
+vim hosts
+```
+
+### Run the playbook
+
+```tcsh
 ansible-playbook -vv playbook.yml
 ```
