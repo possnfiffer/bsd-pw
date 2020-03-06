@@ -346,7 +346,9 @@ poudriere bulk -j amd64-12-1 -p head -f pkglist
 cd /usr/local/poudriere
 ```
 
-this directory contains logs related to Poudriere builds. There are even a few different website files generated at `/data/logs/bulk/.html/` with information about the builds. You can open the website in Firefox using the URL `file:///data/logs/bulk/.html/index.html` to check on the status of a current Poudriere build. You can also press `ctrl + t` on the command line where you issued the `poudriere bulk` command to issue a SIGINFO to Poudriere which is configured to print out the current status of the Poudriere build while the command is still processing. This trick works on many other commands as well to show you the status. For instance if you were using `scp` to download a large file and wanted to see how far along the download was SIGINFO would print out the status on the command line to show you. Once Poudriere has finished, the packages that were built are available at
+this directory contains logs related to Poudriere builds. There are even a few different website files generated at `/data/logs/bulk/.html/` with information about the builds. You can open the website in Firefox using the URL `file:///data/logs/bulk/.html/index.html` to check on the status of a current Poudriere build. You can also press `ctrl + t` on the command line where you issued the `poudriere bulk` command to issue a SIGINFO to Poudriere which is configured to print out the current status of the Poudriere build while the command is still processing. This trick works on many other commands as well to show you the status. For instance if you were using `scp` to download a large file and wanted to see how far along the download was SIGINFO would print out the status on the command line to show you. Another example is if you were decompressing a zip file and wanted to know the status of the extraction process.
+
+Once Poudriere has finished, the packages that were built are available at
 
 ```
 /data/packages/amd64-12-1-head
@@ -417,4 +419,25 @@ poudriere bulk -j amd64-12-1 -p head -f pkglist
 You can now install the updated packages
 ```tcsh
 pkg update
+```
+
+# Ansible
+
+Ansible is a configuration management tool to allow one to create reusable scripts to perform multiple actions on groups of servers or a single server. Ansible organizes tasks into Ansible Playbooks and supports the separation of servers into multiple groups called roles. You can assign certain tasks to their respective roles. Tasks are made up of modules that allow the script to be idempotent. An example would be the package module where you can set the state of absent. If the package is on the system, Ansible will make sure the package is removed or absent. If the package isn't on the system, Ansible won't do anything and will report back to the control machine that invoked the `ansible-playbook` command that there were no changes made as the package we wanted to be absent was indeed absent from the system when Ansible checked. This control machine is usually your development machine. Ansible sends commands to the machines listed in your Ansible hosts file from the control machine using `ssh`.
+
+# Install Ansible
+
+```tcsh
+pkg install -y py36-ansible
+```
+
+# fetch the Ansible playbook for the workshop
+# extract the contents of the compressed Ansible file
+# using an ssh key already added to Digital Ocean or show how to create an ssh key and add it to Digital Ocean?
+
+```tcsh
+ssh-agent tcsh
+ssh-add .ssh/id_rsa
+cd extracted-ansible-directory
+ansible-playbook -vv playbook.yml
 ```
