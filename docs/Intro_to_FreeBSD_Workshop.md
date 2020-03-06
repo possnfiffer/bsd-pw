@@ -182,10 +182,10 @@ Login again as root and type the following to verify UTF-8 locale has been set
 locale
 ```
 
-Install py37-iocage
+Install iocage
 
 ```tcsh
-pkg install -y iocage
+pkg install -y py37-iocage
 ```
 
 the following command assumes your zpool is named zroot adjust as necessary. Type `zpool status` to see the current name of your zpool.
