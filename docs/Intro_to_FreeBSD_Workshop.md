@@ -182,7 +182,7 @@ Login again as root and type the following to verify UTF-8 locale has been set
 locale
 ```
 
-Install iocage
+Install py37-iocage
 
 ```tcsh
 pkg install -y iocage
