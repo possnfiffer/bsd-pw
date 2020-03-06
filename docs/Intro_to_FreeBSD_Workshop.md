@@ -432,7 +432,7 @@ We'll use Ansible to install Poudriere on a remote server that is many times mor
 Install Ansible
 
 ```tcsh
-pkg install -y py36-ansible
+pkg install -y py37-ansible
 ```
 
 fetch the Ansible playbook for the workshop and extract the contents of the compressed Ansible files
