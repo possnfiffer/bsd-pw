@@ -278,13 +278,17 @@ iocage destroy JAILNAME
 # Poudriere
 
 The following commands will work on the virtual machine we’ve been using so far but it will take a long time to compile all the packages.
-We’re going to use the cloned virtual machine we created earlier to explore Poudriere. Start up the cloned VM.
 
-Commands to execute:
+We’re going to use the cloned virtual machine we created earlier to explore Poudriere.
+
+Start up the cloned VM.
+
+Commands to execute as the root user:
 
 ```tcsh
 pkg install -y poudriere vim-console
 mkdir /usr/ports/distfiles
+mkdir /usr/local/poudriere
 vim /usr/local/etc/poudriere.conf
 ```
 
