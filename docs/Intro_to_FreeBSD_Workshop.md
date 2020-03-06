@@ -132,8 +132,15 @@ This is a local copy of the FreeBSD Handbook, and it will always be available as
 ```tcsh
 sudo -i
 env PAGER=cat freebsd-update fetch install
-# We're using env PAGER=cat to modify the value of the PAGER variable which is used by the freebsd-update shell script. If you open up the shell script you will see the default value of PAGER is set to `less`. You can find the location of the freebsd-update shell script by typing `which freebsd-update`. By setting the value of PAGER to `cat`, `freebsd-update` will not stop to display the list of file to be updated, instead the `cat` command will only display the list of files and won't stop to wait for you to read. If you only type `freebsd-update fetch install` you'll need to use the following to get through the prompts
-# Page Down & q should get you through the prompts. If the screen shows END press q, use Page Down for the other screens. You can also use q for every screen.
+```
+
+We're using env PAGER=cat to modify the value of the PAGER variable which is used by the freebsd-update shell script. If you open up the shell script you will see the default value of PAGER is set to `less`. You can find the location of the freebsd-update shell script by typing `which freebsd-update`. By setting the value of PAGER to `cat`, `freebsd-update` will not stop to display the list of file to be updated, instead the `cat` command will only display the list of files and won't stop to wait for you to read. If you only type `freebsd-update fetch install` you'll need to use the following to get through the prompts
+
+Page Down & q should get you through the prompts. If the screen shows END press q, use Page Down for the other screens. You can also use q for every screen.
+
+Now that FreeBSD itself is up to date, we should also update the packages.
+
+```tcsh
 pkg update
 pkg upgrade -y
 ```
