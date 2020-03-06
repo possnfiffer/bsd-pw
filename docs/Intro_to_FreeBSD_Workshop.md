@@ -37,7 +37,7 @@ Select `Install` by pressing `Enter/Return` on the keyboard. At this point, you 
 
 Continue through the installer with the following in mind:
 
-for this install, we’ll continue with the default US keyboard layout, name the computer `getting-started-with-freebsd` and select the default settings on the `Distribution Select` screen by just pressing `ok` For the `Network Configuration` section, we went with the `em0` interface on the virtual machine as we know that VirtualBox uses the intel network driver which has the `em0` designation. On some machines you will find the `re0` interface which is the RealTek network driver. 
+for this install, we’ll continue with the default US keyboard layout, name the computer `getting-started-with-freebsd` and select the default settings on the `Distribution Select` screen by just pressing `ok` For the `Network Configuration` section, we went with the `em0` interface on the virtual machine as we know that VirtualBox uses the intel network driver which has the `em0` designation. On some machines you will find the `re0` interface which is the Realtek network driver. 
 
 Yes, configure IPv4. Yes, use DHCP. Yes, use IPv6. Yes, try SLAAC. The resolver configuration should be populated with at least one DNS value. Use the “Tab” key on the keyboard to move to select `ok` to continue. For the `Mirror Configuration` we used `Main Site`. Next, we need to decide how to partition the disc. On the `Partitioning` screen, there are options for Auto (ZFS) and Auto (UFS). Select Auto (ZFS), choose stripe as the ZFS pool type and select the disc to use for the pool with the space-bar, name the pool, and proceed with installation. Finally, agree to install FreeBSD by selecting `Yes`.
 
