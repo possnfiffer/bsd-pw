@@ -433,7 +433,10 @@ pkg install -y py36-ansible
 
 ### fetch the Ansible playbook for the workshop
 ### extract the contents of the compressed Ansible file
-### using an ssh key already added to Digital Ocean or show how to create an ssh key and add it to Digital Ocean?
+### show how to create an ssh key 
+### show how to add the .pub key to Digital Ocean
+### create the droplet and copy the ip
+### update the hosts file with the droplet ip
 
 ```tcsh
 ssh-agent tcsh
