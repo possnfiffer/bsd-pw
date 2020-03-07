@@ -471,7 +471,7 @@ The last task in `ansible/roles/poudriere/tasks/poudriere.yml` called `download 
 
 You need to have rsync installed on your local machine to be able to use the syncronize module and sync the packages directory
 
-You can tell ansible to start at a particular task. Using `--start-at-task="download compiled packages` for instance will start at the last task and only sync the packages directory down to our local machine using rsync
+You can tell ansible to start at a particular task. Using `--start-at-task="download compiled packages"` for instance will start at the last task and only sync the packages directory down to our local machine using rsync
 
 ### Run the playbook
 
