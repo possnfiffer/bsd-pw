@@ -473,6 +473,8 @@ You need to have rsync installed on your local machine to be able to use the syn
 
 You can tell ansible to start at a particular task. Using `--start-at-task="download compiled packages"` for instance will start at the last task and only sync the packages directory down to our local machine using rsync
 
+You can tell ansible to step through each task and ask you what you want to do using `--step`. `y` will execute the current task, `n` will skip the task, and `c` will continue executing all the remaining tasks
+
 ### Run the playbook
 
 ```tcsh
