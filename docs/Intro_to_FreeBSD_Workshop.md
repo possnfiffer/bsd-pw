@@ -399,14 +399,14 @@ pkg upgrade -fy
 
 ## Updating Poudriere
 
-NOTE: A good Systems Administration practice is to add comments to your configs to let the future you know what the config options do and why there were put there in the first place. That way when you revisit a config file after some time, you'll have some context as to why those options were chosen.
+NOTE: A good Systems Administration practice is to add comments to your configs to let the future you know what the config options do and why they were put there in the first place. That way when you revisit a config file after some time, you'll have some context as to why those options were chosen.
 
 ```tcsh
 vim /usr/local/etc/poudriere.conf
 ```
 
 ```
-# by default Poudriere builds all packages in the pkglist by default, these two lines tell Poudriere to look at each package individually to see if the currently built package is already at the latest version, if so, Poudriere will skip building the package again. This way only packages that need updates are being rebuilt, speeing up the overall build time for your package repository as you issue updates going forward.
+# Poudriere builds all packages in the pkglist by default, these two lines tell Poudriere to look at each package individually to see if the currently built package is already at the latest version, if so, Poudriere will skip building the package again. This way only packages that need updates are being rebuilt, speeing up the overall build time for your package repository as you issue updates going forward.
 
 CHECK_CHANGED_OPTIONS=verbose
 CHECK_CHANGED_DEPS=yes
