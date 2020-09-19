@@ -442,7 +442,7 @@ fetch http://bsd.pw/ansible-directory.tar.gz
 tar -xzvf ansible-directory.tar.gz
 ```
 
-Create an SSH Key Pair, add a passphrase to the key when prompted and load the new key into memory with `ssh-agent` where you will prompted for the passphrase we just set on the key in order to load it into memory. This allows us to only need to enter in the passphrase for our SSH key one time per terminal session.
+Create an SSH Key Pair, add a passphrase to the key when prompted and load the new key into memory with `ssh-agent` where you will be prompted for the passphrase we just set on the key in order to load it into memory. This allows us to only need to enter in the passphrase for our SSH key one time per terminal session.
 
 ```tcsh
 cd ansible-directory
