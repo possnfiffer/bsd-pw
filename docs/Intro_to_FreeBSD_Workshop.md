@@ -314,7 +314,7 @@ poudriere ports -l
 get together a list of packages to build. I ran `pkg query -e '%a=0' %o` on my laptop and a large list appeared. pkg query on my VM was much shorter. To learn more about `pkg query` issue the command `pkg help query` to see help text for the query subcommand. Most commands support some form of help (-h, --help, or simply reading the man page with `man PROGRAM`) For this tutorial we will just build a shorter list of packages. The command to export the current packages installed on the system to a file called pkglist is
 
 ```tcsh
-pkg query -e ‘%a=0’ %o | tee pkglist
+pkg query -e '%a=0' %o | tee pkglist
 ```
 
 ```tcsh
