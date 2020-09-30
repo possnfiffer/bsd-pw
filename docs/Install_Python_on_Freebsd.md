@@ -13,19 +13,6 @@
 ## A final configuration step is to setup UTF-8 on FreeBSD. If you haven't already done so check the instructions in the Intro to FreeBSD Workshop linked below
 [Intro to FreeBSD](https://github.com/possnfiffer/bsd-pw/blob/gh-pages/docs/Intro_to_FreeBSD_Workshop.md#iocage)
 
-## Regular Python venv module usage commands
-```python3.8 -m venv venv```
-
-```source venv/bin/activate.csh```
-
-```pip install --upgrade pip setuptools```
-
-```pip install b2```
-
-```pip install -r requirements.txt```
-
-```deactivate to exit virtualenv```
-
 ## Python with pipenv usage commands
 ```pipenv install b2```
 
@@ -45,6 +32,20 @@ which will install the b2 client for BackBlaze B2 which I use for off-site backu
 Also, pipenv uses a Pipfile rather than requirements.txt so you can import a requirements.txt file like
 
 ```pipenv install -r requirements.txt```
+
+
+## Regular Python venv module usage commands
+```python3.8 -m venv venv```
+
+```source venv/bin/activate.csh```
+
+```pip install --upgrade pip setuptools```
+
+```pip install b2```
+
+```pip install -r requirements.txt```
+
+```deactivate to exit virtualenv```
 
 ### Once you have your requirements installed...
 
