@@ -15,9 +15,13 @@
 
 ## Regular Python venv module usage commands
 ```python3.8 -m venv venv```
+
 ```source venv/bin/activate.csh```
+
 ```pip install b2```
+
 ```pip install -r requirements.txt```
+
 ```Ctrl-D to exit virtualenv```
 
 ## Python with pipenv usage commands
