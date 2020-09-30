@@ -2,7 +2,7 @@
 
 ## Aquire Python 3.8 and Pipenv for managing virtual environments and installing packages via pip
 
-```sudo pkg install -y python37```
+```sudo pkg install -y python38```
 
 ```sudo -H python3.8 -m ensurepip```
 
@@ -22,7 +22,7 @@
 
 ```pip install -r requirements.txt```
 
-```Ctrl-D to exit virtualenv```
+```deactivate to exit virtualenv```
 
 ## Python with pipenv usage commands
 ```pipenv install b2```
