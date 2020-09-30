@@ -6,7 +6,7 @@
 
 ```sudo -H python3.8 -m ensurepip```
 
-```sudo -H pip3.8 install --upgrade pip```
+```sudo -H pip3.8 install --upgrade pip setuptools```
 
 ```sudo -H pip3.8 install pipenv```
 
