@@ -18,6 +18,8 @@
 
 ```source venv/bin/activate.csh```
 
+```pip install --upgrade pip setuptools```
+
 ```pip install b2```
 
 ```pip install -r requirements.txt```
