@@ -128,7 +128,7 @@ Here is how to open a local copy of the handbook we installed in the Final Confi
   - Right click on: `Desktop` > `Applications` > `Network` > `Firefox Web Browser`
 - Open Firefox and navigate to the following URL: `file:///usr/local/share/doc/freebsd/handbook/index.html`
 
-This is a local copy of the FreeBSD Handbook, and it will always be available as it doesn't require an active internet connection. That’s all it takes to install FreeBSD. The next recommended step is to choose a firewall and configure it. Also recommend you pick up a copy of the book “BSD Hacks” to get more familiar with the `tcsh` shell as well as to acquire several new skills.
+This is a local copy of the FreeBSD Handbook, and it will always be available as it doesn't require an active internet connection. That’s all it takes to install FreeBSD. The next recommended step is to choose a firewall and configure it. If you pick up a copy of the book “BSD Hacks”, you will get more familiar with the `tcsh` shell as well as acquire several new skills.
 
 ### Back to the slides
 
@@ -141,7 +141,7 @@ sudo -i
 env PAGER=cat freebsd-update fetch install
 ```
 
-We're using env PAGER=cat to modify the value of the PAGER variable which is used by the freebsd-update shell script. If you open up the shell script you will see the default value of PAGER is set to `less`. You can find the location of the freebsd-update shell script by typing `which freebsd-update`. By setting the value of PAGER to `cat`, `freebsd-update` will not stop to display the list of file to be updated, instead the `cat` command will only display the list of files and won't stop to wait for you to read. If you only type `freebsd-update fetch install` you'll need to use the following to get through the prompts
+We're using env PAGER=cat to modify the value of the PAGER variable which is used by the freebsd-update shell script. If you open up the shell script you will see the default value of PAGER is set to `less`. You can find the location of the freebsd-update shell script by typing `which freebsd-update`. By setting the value of PAGER to `cat`, `freebsd-update` will not stop to display the list of files to be updated, instead the `cat` command will only display the list of files and won't stop to wait for you to read. If you only type `freebsd-update fetch install` you'll need to use the following to get through the prompts
 
 Page Down & q should get you through the prompts. If the screen shows END press q, use Page Down for the other screens. You can also use q for every screen.
 
