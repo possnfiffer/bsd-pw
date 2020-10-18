@@ -107,7 +107,7 @@ startx
 
 ##### Known issues
 
-- If you notice that your mouse is kinda slow, or you notice you have a small screen that doesn't fill your VirtualBox window, shutdown your machine and then do the following:
+- If you notice that your mouse is kinda slow, or you notice you have a small screen that doesn't fill your VirtualBox window, or if startx just isn't working for you, shutdown your machine and then do the following:
   - Open your VM `Settings` -> `Display` tab
   - Confirm `VBoxVGA` is selected
   - Click `OK` and start your machine again.
