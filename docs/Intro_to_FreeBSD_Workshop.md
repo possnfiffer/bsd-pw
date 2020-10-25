@@ -1,4 +1,4 @@
-# SCaLE18x Intro to FreeBSD
+# Intro to FreeBSD | BSD.pw Workshop
 
 ## Requirements
 
