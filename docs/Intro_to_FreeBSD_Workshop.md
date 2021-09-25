@@ -90,9 +90,10 @@ j0xxZZ (once you hit the first search term, j goes down, 0 goes to the beginning
 sysrc dbus_enable=YES
 dbus-uuidgen > /etc/machine-id
 service dbus start
+reboot
 ```
 
-Change to regular user by holding down “control” and pressing “d” on the keyboard which will log out the current user. You can also just type "logout" to do the same thing. Log in again, this time as the regular user account that was created. Next type the following commands.
+After your machine reboots, Log in again, this time as the regular user account that was created. Next type the following commands.
 
 ```tcsh
 vim .xinitrc
