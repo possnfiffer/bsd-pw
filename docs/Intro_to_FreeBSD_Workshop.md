@@ -89,7 +89,6 @@ j0xxZZ (once you hit the first search term, j goes down, 0 goes to the beginning
 ```tcsh
 sysrc dbus_enable=YES
 dbus-uuidgen > /etc/machine-id
-service dbus start
 reboot
 ```
 
