@@ -62,7 +62,12 @@ Boot up the first VM, use the `Start` button to boot the machine and log in as t
 Type the following commands on the virtual machine:
 
 ```tcsh
-pkg install -y xorg sudo lumina sakura virtualbox-ose-additions firefox vim-console
+pkg
+```
+respond to the prompt with y to bootstrap pkg if you didn't install the handbook earlier
+
+```tcsh
+pkg install -y xorg sudo lumina sakura virtualbox-ose-additions firefox vim
 sysrc vboxguest_enable=YES
 sysrc vboxservice_enable=YES
 sysrc moused_enable=YES
