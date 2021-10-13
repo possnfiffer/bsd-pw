@@ -120,6 +120,7 @@ startx
 
 ##### Known issues
 
+- On OSX, don't use the green button to make the window larger, instead drag from the corner of the window to increase the size.
 - If you notice that your mouse is kinda slow, or you notice you have a small screen that doesn't fill your VirtualBox window, or if startx just isn't working for you, or your desktop loads but is frozen, shutdown your machine with the `Machine` menu then the `ACPI Shutdown` option and then do the following:
   - Open your VM `Settings` -> `Display` tab
   - Confirm `VBoxVGA` is selected, ignore the invalid settings alert as we need to use this particular display driver
