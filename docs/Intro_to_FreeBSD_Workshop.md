@@ -100,6 +100,14 @@ vim .xinitrc
 
 This time we use the vim editor, VI iMproved, and to begin typing you need to be in “insert mode” and must press `i` to enter insert mode and begin typing in text. Type in the following one-line configuration:
 
+#### XFCE Desktop setting for .xinitrc
+
+```
+exec startxfce4
+```
+
+#### Lumina Desktop setting for .xinitrc
+
 ```
 exec start-lumina-desktop
 ```
@@ -117,7 +125,7 @@ startx
   - Confirm `VBoxVGA` is selected, ignore the invalid settings alert as we need to use this particular display driver
   - Click `OK` and start your machine again.
 
-#### Desktop Configuration
+#### Lumina Desktop Configuration
 
 Right click on the desktop > `Preferences` > `All Desktop Settings` Under `Appearance` click on `Theme`, then select `Icons` from the sidebar, then select `Material Design (light)`, and click on `Apply`. Close the `Theme Settings` window.
 
@@ -129,9 +137,12 @@ Right click on the desktop and select `Preferences` then `Wallpaper`, click on t
 
 Here is how to open a local copy of the handbook we installed in the Final Configuration:
 
-- Look for Firefox in the applications menu in Lumina.
+- Look for Firefox in the applications menu
+- In XFCE:
+  - Click on `Applications` > `Internet` > `Firefox Web Browser`
+- In Lumina:
   - Right click on: `Desktop` > `Applications` > `Network` > `Firefox Web Browser`
-- Open Firefox and navigate to the following URL: `file:///usr/local/share/doc/freebsd/handbook/index.html`
+- Open Firefox and navigate to the following URL: `file:///usr/local/share/doc/freebsd/en/books/handbook/book.html`
 
 This is a local copy of the FreeBSD Handbook, and it will always be available as it doesn't require an active internet connection. That’s all it takes to install FreeBSD. The next recommended step is to choose a firewall and configure it. If you pick up a copy of the book “BSD Hacks”, you will get more familiar with the `tcsh` shell as well as acquire several new skills.
 
