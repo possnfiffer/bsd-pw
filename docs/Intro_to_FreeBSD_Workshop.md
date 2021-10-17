@@ -67,7 +67,7 @@ pkg
 respond to the prompt with y to bootstrap pkg if you didn't install the handbook earlier
 
 ```tcsh
-pkg install -y xorg sudo lumina sakura virtualbox-ose-additions firefox vim
+pkg install -y xorg sudo lumina sakura virtualbox-ose-additions firefox vim-x11
 sysrc vboxguest_enable=YES
 sysrc vboxservice_enable=YES
 sysrc moused_enable=YES
