@@ -9,14 +9,16 @@ set white       = '%{\033[37m%}'
 set nocolor     = '%{\033[0m%}'
 
 if ($?prompt) then
-	set prompt = "[${red}%n@%m:%~${nocolor}][${yellow}%h${nocolor}]>%b: "
+	set prompt = "[${green}%n@%m:%~${nocolor}][${white}%h${nocolor}]>%b: "
 endif
 
 set history = 99999999
-# set histdup = erase
-set savehist = (99999999 merge lock)
+set savehist = (99999999 merge)
 set histfile = ~/.tcsh_history
 
+
+# Set vim as default editor
+setenv EDITOR vim
 
 # like Ctrl-d, just push TAB
 set autolist
@@ -32,3 +34,26 @@ set noclobber
 # Fairly popular aliases to try out
 alias la ls -laG
 alias ll ls -G
+alias cal cal -y
+
+# SSH aliases
+alias ssag ssh-agent tcsh 
+alias ssad ssh-add ~/.ssh/id_rsa
+# SSH Tunnel
+alias sstun 'ssh roller@10.16.28.32 -L 8000:localhost:8000 -N'
+# SSH Tunnel fork into background
+alias sstunf 'ssh -f roller@10.16.28.32 -L 8000:localhost:8000 -N'
+
+# Git aliases
+alias gs git status
+alias gb git branch
+alias gr 'git remote -v'
+alias glog 'git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
+alias gco git checkout
+
+# Python aliases
+alias pvenv 'python3.9 -m venv venv && source venv/bin/activate.csh && pip install -U pip setuptools'
+alias pvenvr 'python3.9 -m venv venv && source venv/bin/activate.csh && pip install -U pip setuptools && pip install -r requirements.txt && rehash'
+alias pvenvrd 'python3.9 -m venv venv && source venv/bin/activate.csh && pip install -U pip setuptools && pip install -r requirements-dev.txt && rehash'
+alias ae source venv/bin/activate.csh
+alias de deactivate
