@@ -64,10 +64,10 @@ Type the following commands on the virtual machine:
 ```tcsh
 pkg
 ```
-respond to the prompt with y to bootstrap pkg if you didn't install the handbook earlier
+respond to the prompt with y to bootstrap pkg if you didn't install the handbook earlier. we're installing 3 Desktop Environments below, lumina, xfce, and kde.
 
 ```tcsh
-pkg install -y xorg sudo lumina sakura virtualbox-ose-additions firefox vim-x11
+pkg install -y xorg sudo lumina xfce kde5 sakura virtualbox-ose-additions firefox vim-x11
 sysrc vboxguest_enable=YES
 sysrc vboxservice_enable=YES
 sysrc moused_enable=YES
@@ -110,6 +110,12 @@ exec startxfce4
 
 ```
 exec start-lumina-desktop
+```
+
+#### KDE Plasma Desktop setting for .xinitrc
+
+```
+exec startplasma-x11
 ```
 
 Exit vim by pressing “Esc” on the keyboard, then type `ZZ` or `:wq` followed by `Enter/Return`. At this point the virtual machine desktop can be started with the following command:
