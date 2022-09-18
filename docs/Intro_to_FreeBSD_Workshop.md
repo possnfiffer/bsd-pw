@@ -14,10 +14,10 @@ To begin, we can simply:
 - Visit [FreeBSD.org](https://FreeBSD.org) on a working computer
 - Look for the big `Download FreeBSD` button near the awesome beastie logo.
 - Once on that page, you will need to select the proper image from the list of `Installer Images`. We'll choose `amd64`.
-- Next, we’ll pick the image called `FreeBSD-13.0-RELEASE-amd64-disc1.iso` from the list.
+- Next, we’ll pick the image called `FreeBSD-13.1-RELEASE-amd64-disc1.iso` from the list.
   - Because it’s the latest RELEASE version of FreeBSD
 
-I highly recommend you also take a look at the `CHECKSUM.SHA512-FreeBSD-13.0-RELEASE-amd64` file and do your own SHA512 checksum verification after you have downloaded the file to see if they match. If so, you know that your download worked properly. Once the installer image has been downloaded, it is ready to be used to boot up the virtual machine.
+I highly recommend you also take a look at the `CHECKSUM.SHA512-FreeBSD-13.1-RELEASE-amd64` file and do your own SHA512 checksum verification after you have downloaded the file to see if they match. If so, you know that your download worked properly. Once the installer image has been downloaded, it is ready to be used to boot up the virtual machine.
 
 In VirtualBox, click the `New` button to start the wizard that will walk you through creating a virtual machine. The important options to keep in mind are the following:
 
@@ -209,7 +209,7 @@ locale
 Install iocage
 
 ```tcsh
-pkg install -y py37-iocage
+pkg install -y py39-iocage
 ```
 
 the following command assumes your zpool is named zroot adjust as necessary. Type `zpool status` to see the current name of your zpool.
@@ -259,7 +259,7 @@ iocage create --help
 Create a base jail
 
 ```tcsh
-iocage create -T -n JAILNAME ip4_addr="10.0.2.16" -r 12.1-RELEASE
+iocage create -T -n JAILNAME ip4_addr="10.0.2.16" -r 13.1-RELEASE
 ```
 
 List current jails
@@ -328,7 +328,7 @@ FREEBSD_HOST=https://download.freebsd.org
 Continue executing:
 
 ```tcsh
-poudriere jail -c -j amd64-12-1 -v 12.1-RELEASE
+poudriere jail -c -j amd64-13-1 -v 13.1-RELEASE
 poudriere jail -l
 poudriere ports -cp head
 poudriere ports -l
@@ -352,7 +352,7 @@ Two ways to configure custom options for packages, manually and with the normal 
 FYI: Manually looks like this
 
 ```tcsh
-vim /usr/local/etc/poudriere.d/amd64-12-1-make.conf
+vim /usr/local/etc/poudriere.d/amd64-13-1-make.conf
 ```
 
 ```
@@ -362,13 +362,13 @@ DEFAULT_VERSIONS += ssl=libressl
 To customize a package one can use the normal package configuration screens, which will appear when issuing the following command
 
 ```tcsh
-poudriere options -j amd64-12-1 -p head -f pkglist
+poudriere options -j amd64-13-1 -p head -f pkglist
 ```
 
 For this tutorial we’ll just actually build the packages with the default options to get the hang of Poudriere by issuing the following
 
 ```tcsh
-poudriere bulk -j amd64-12-1 -p head -f pkglist
+poudriere bulk -j amd64-13-1 -p head -f pkglist
 cd /usr/local/poudriere
 ```
 
@@ -377,7 +377,7 @@ this directory contains logs related to Poudriere builds. There are even a few d
 Once Poudriere has finished, the packages that were built are available at
 
 ```
-/data/packages/amd64-12-1-head
+/data/packages/amd64-13-1-head
 ```
 
 Create a pkg repository
@@ -403,14 +403,14 @@ FreeBSD: {
 Create a new configuration file for your local Poudriere package repository similar to the FreeBSD.conf file to hold the repository configuration
 
 ```tcsh
-vim /usr/local/etc/pkg/repos/amd64-12-1.conf
+vim /usr/local/etc/pkg/repos/amd64-13-1.conf
 ```
 
 Add the following configuration
 
 ```
-amd64-12-1: {
-    url: “file:///data/packages/amd64-12-1-head”,
+amd64-13-1: {
+    url: “file:///data/packages/amd64-13-1-head”,
     enabled: yes,
 }
 ```
@@ -437,9 +437,9 @@ CHECK_CHANGED_DEPS=yes
 ```
 
 ```tcsh
-poudriere jail -j amd64-12-1 -u
+poudriere jail -j amd64-13-1 -u
 poudriere ports -p head -u
-poudriere bulk -j amd64-12-1 -p head -f pkglist
+poudriere bulk -j amd64-13-1 -p head -f pkglist
 ```
 
 You can now install the updated packages
@@ -456,7 +456,7 @@ We'll use Ansible to install Poudriere on a remote server that is many times mor
 Install Ansible
 
 ```tcsh
-pkg install -y py37-ansible
+pkg install -y py39-ansible
 ```
 
 fetch the Ansible playbook for the workshop and extract the contents of the compressed Ansible files
@@ -475,13 +475,13 @@ ssh-agent tcsh
 ssh-add ansible
 ```
 
-Copy the contents of the ansible.pub key over to Digital Ocean
+Copy the contents of the ansible.pub key over to Vultr in their SSH Keys section
 
 ```tcsh
 cat ansible.pub
 ```
 
-Create the Digital Ocean droplet and select the new SSH key then copy the droplet IP
+Create another machine and select the new SSH key then copy the IP of the new machine
 
 Update the hosts file with the new Digital Ocean droplet IP
 
