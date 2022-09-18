@@ -456,7 +456,7 @@ cat ansible.pub
 
 Create another machine and select the new SSH key then copy the IP of the new machine
 
-Update the hosts file with the new Digital Ocean droplet IP
+Update the hosts file with the new machine IP
 
 ```tcsh
 vim hosts
