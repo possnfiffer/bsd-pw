@@ -179,33 +179,6 @@ pkg upgrade -y
 
 #### IOCAGE
 
-Set UTF-8 as the locale for this host
-
-```tcsh
-vim /etc/login.conf
-```
-
-Change the line with `:umask=022:` to look like the following:
-
-```
-:umask=022:\
-:charset=UTF-8:\
-:lang=en_US.UTF-8:
-```
-
-save and quit the editor then run the following
-
-```tcsh
-cap_mkdb /etc/login.conf
-logout
-```
-
-Login again as root and type the following to verify UTF-8 locale has been set
-
-```tcsh
-locale
-```
-
 Install iocage
 
 ```tcsh
