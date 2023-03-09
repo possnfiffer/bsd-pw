@@ -70,7 +70,7 @@ pkg
 respond to the prompt with y to bootstrap pkg if you didn't install the handbook earlier. we're installing 3 Desktop Environments below, lumina, xfce, and kde.
 
 ```tcsh
-pkg install -y xorg sudo lumina xfce kde5 sakura virtualbox-ose-additions firefox vim-x11
+pkg install -y xorg sudo xfce virtualbox-ose-additions firefox-esr vim-x11
 sysrc vboxguest_enable=YES
 sysrc vboxservice_enable=YES
 sysrc moused_enable=YES
