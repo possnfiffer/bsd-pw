@@ -19,7 +19,9 @@ To begin, we can simply:
 
 I highly recommend you also take a look at the `CHECKSUM.SHA512-FreeBSD-13.1-RELEASE-amd64` file and do your own SHA512 checksum verification after you have downloaded the file to see if they match. If so, you know that your download worked properly. Once the installer image has been downloaded, it is ready to be used to boot up the virtual machine.
 
-If you don't want to or can't use VirtualBox you can use [Vultr](https://www.vultr.com/?ref=9386224)
+### If you don't want to or can't use VirtualBox you can use [Vultr](https://www.vultr.com/?ref=9386224)
+
+
 In VirtualBox, click the `New` button to start the wizard that will walk you through creating a virtual machine. The important options to keep in mind are the following:
 
 - Type of OS we'll choose `FreeBSD 64 bit`,
