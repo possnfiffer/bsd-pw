@@ -332,7 +332,8 @@ vim /usr/local/etc/poudriere.d/amd64-13-1-make.conf
 ```
 
 ```
-DEFAULT_VERSIONS += ssl=libressl
+OPTIONS_UNSET+= DOCS NLS X11 EXAMPLES IPV6 KERBEROS
+DEFAULT_VERSIONS+= ssl=openssl
 ```
 
 To customize a package one can use the normal package configuration screens, which will appear when issuing the following command
