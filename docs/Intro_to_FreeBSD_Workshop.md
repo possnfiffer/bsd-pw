@@ -288,7 +288,7 @@ Start up the cloned VM.
 Commands to execute as the root user:
 
 ```tcsh
-pkg install -y poudriere vim-console
+pkg install -y poudriere vim
 mkdir /usr/ports/distfiles
 mkdir /usr/local/poudriere
 vim /usr/local/etc/poudriere.conf
