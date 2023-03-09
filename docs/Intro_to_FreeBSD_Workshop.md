@@ -202,7 +202,7 @@ mount -t fdescfs null /dev/fd
 vi /etc/fstab
 ```
 
-Add the following line to the file and exit when finished. `i` for insert mode, ESC then `ZZ` to save and quit the file. Press TAB between each of the fields for the fstab file rather than using spaces to separate fields.
+Add the following line to the file and exit when finished. Type `j` until you're at the bottom of the file, the `o` to open a new line and begin typing, ESC then `ZZ` to save and quit the file. Press TAB between each of the fields for the fstab file rather than using spaces to separate fields.
 
 ```tcsh
 fdescfs /dev/fd fdescfs rw 0 0
