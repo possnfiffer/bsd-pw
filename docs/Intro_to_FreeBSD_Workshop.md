@@ -318,9 +318,7 @@ pkg query -e '%a=0' %o | tee pkglist
 ```
 
 ```tcsh
-editors/vim-console
-ports-mgmt/pkg
-ports-mgmt/poudriere
+editors/vim
 ```
 
 **Note**: `tee` writes output to a file and also to `stdout`. Also the following two bits of information are optional for this tutorial and are included to show you how to customize packages.
