@@ -353,7 +353,7 @@ this directory contains logs related to Poudriere builds. There are even a few d
 Once Poudriere has finished, the packages that were built are available at
 
 ```
-/data/packages/amd64-13-1-head
+/usr/local/poudriere/data/packages/amd64-13-1-head
 ```
 
 Create a pkg repository
@@ -386,7 +386,7 @@ Add the following configuration
 
 ```
 amd64-13-1: {
-    url: “file:///data/packages/amd64-13-1-head”,
+    url: “file:///usr/local/poudriere/data/packages/amd64-13-1-head”,
     enabled: yes,
 }
 ```
