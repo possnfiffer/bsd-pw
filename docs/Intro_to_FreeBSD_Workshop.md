@@ -306,6 +306,7 @@ Continue executing:
 ```tcsh
 poudriere jail -c -j amd64-13-1 -v 13.1-RELEASE
 poudriere jail -l
+pkg install -y git
 poudriere ports -cp head
 poudriere ports -l
 ```
@@ -415,7 +416,6 @@ CHECK_CHANGED_DEPS=yes
 
 ```tcsh
 poudriere jail -j amd64-13-1 -u
-pkg install -y git
 poudriere ports -p head -u
 poudriere bulk -j amd64-13-1 -p head -f pkglist
 ```
