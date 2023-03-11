@@ -480,3 +480,20 @@ You can tell ansible to step through each task and ask you what you want to do u
 ```tcsh
 ansible-playbook -vv playbook.yml
 ```
+
+### VNC
+
+If you create a FreeBSD instance on a remote server using something like Vultr, you can access the desktop by doing a few more steps. Login to the console as your regular user then issue the following commands. Make sure you've edited your `.xinitrc` as described above to make `startx` launch your preferred desktop.
+```
+sudo pkg install -y x11vnc
+startx
+```
+
+Then on your local machine you need to install VNC Viewer from RealVNC or some other VNC client and you need to create an ssh tunnel using the following commands.
+
+```
+ssh -t -L 5900:localhost:5900 roller@94.8(whatever your IP Address is use that here)
+x11vnc -localhost -shared -forever -ultrafilexfer -usepw -display :0
+```
+
+You'll be asked to set your VNC password then use the Y key to save the passwd file. Now you're ready to connect using the VNC client just point it to localhost:5900 and connect with the VNC password you just set. Enjoy!
