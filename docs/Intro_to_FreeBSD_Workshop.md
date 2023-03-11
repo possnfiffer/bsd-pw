@@ -67,10 +67,10 @@ Type the following commands on the virtual machine:
 ```tcsh
 pkg
 ```
-respond to the prompt with y to bootstrap pkg if you didn't install the handbook earlier. we're installing 3 Desktop Environments below, lumina, xfce, and kde.
+respond to the prompt with y to bootstrap pkg if you didn't install the handbook earlier. We're installing Xfce. You can easily install 3 Desktop Environments, lumina, xfce, and kde. simply replace xfce below with `kde5` or `lumina`
 
 ```tcsh
-pkg install -y xorg sudo xfce virtualbox-ose-additions firefox-esr vim-x11
+pkg install -y xorg sudo xfce virtualbox-ose-additions firefox vim-x11
 sysrc vboxguest_enable=YES
 sysrc vboxservice_enable=YES
 sysrc moused_enable=YES
